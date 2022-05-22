@@ -7,8 +7,10 @@
     4. 비트 마스크
 */
 
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
 /*
     1. 이동할 채널 C를 정한다.
     0에서 100만
@@ -25,14 +27,17 @@ bool broken[10]; // 버튼이 고장나 있으면 true, 아니면 false
 int chck(int c){    
 
     // c가 0 이거고 고장난 버튼이면 불가능
-    c == 0 && broken[0] ? 0 : 1;
+    if(c == 0) {
+     return broken[0] ? 0 : 1;
+    }
 
     int len = 0;
-    while (c > 0)
+    while (c)
     {
-        broken[c % 10] && 0;
-        
-        len += 1;
+        if(broken[c % 10]) { 
+            return 0;
+        }
+        len ++;
         c /= 10;
     }
     // 자릿수 반환 
@@ -42,13 +47,13 @@ int chck(int c){
 int main(){
     // cin 입력 
     int n,m;
-    cin >> n;    
-    cin >> m;
-
+    scanf("%d",&n);
+    scanf("%d",&m);
+    
     // 고장난 부분 체크 
     for(int i=0; i< m; i++){
         int x;
-        cin >> x;
+        scanf("%d",&x);
         broken[x] = true;
     }
 
