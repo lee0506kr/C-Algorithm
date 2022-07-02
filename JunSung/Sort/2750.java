@@ -1,0 +1,23 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        // 배열로 처리
+        int[] arr = new int[n];
+
+        for(int i = 0; i < n; i++){
+            arr[i] = in.nextInt();
+        }
+        // 정렬
+        Arrays.sort(arr);
+
+        for(int i=0; i<n; i++){
+            System.out.println(arr[i]);
+        }
+
+    }
+}
